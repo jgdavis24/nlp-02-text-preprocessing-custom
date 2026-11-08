@@ -1,4 +1,7 @@
-"""text_preprocessing.py - Project script (example).
+"""text_preprocessing.py - Project script (custom).
+
+Author: Josiah Davis
+Date: 2026-11
 
 Purpose
 
@@ -16,6 +19,7 @@ Analytical Questions
 Notes:
 - This example performs basic text preprocessing.
 - More advanced text processing techniques will be introduced later.
+- Started from Dr. Case's nlp-02-text-preprocessing example.
 
 Run from root project folder with:
 
