@@ -1,8 +1,8 @@
-# nlp-02-text-preprocessing
+# nlp-02-text-preprocessing-custom
 
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
-[![CI](https://github.com/denisecase/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/denisecase/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml)
-[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://denisecase.github.io/nlp-02-text-preprocessing/)
+[![CI](https://github.com/jgdavis24/nlp-02-text-preprocessing-custom/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/jgdavis24/nlp-02-text-preprocessing-custom/actions/workflows/ci-python-zensical.yml)
+[![Documentation](https://img.shields.io/badge/docs-site-blue?logo=github)](https://jgdavis24.github.io/nlp-02-text-preprocessing-custom/)
 
 [![uv managed](https://img.shields.io/badge/uv-managed-DE5FE9)](https://docs.astral.sh/uv/)
 [![ty type checked](https://img.shields.io/badge/ty-type_checked-2F80ED)](https://docs.astral.sh/ty/)
@@ -13,11 +13,14 @@
 
 ## Project Overview
 
-Author: Denise Case
+Author: Josiah Davis
 
-Date: 2026 October
+Date: 2026-11
 
-Second project in the Web Mining and Applied NLP course.
+Custom version of the second project in the Web Mining and Applied NLP course.
+Started from Dr. Case's
+[nlp-02-text-preprocessing](https://github.com/denisecase/nlp-02-text-preprocessing)
+example.
 
 This project introduces text preprocessing,
 an important foundation for natural language processing.
@@ -26,6 +29,10 @@ The goal is to read text data,
 apply common preprocessing techniques,
 compare raw and cleaned text,
 and understand how preprocessing decisions affect analysis.
+
+Planned customization: swap in my own text file of sportsbook app reviews
+and test whether keeping 2-letter tokens (like state codes PA and NJ)
+changes the top words compared to the default length filter.
 
 The project is configured in
 [pyproject.toml](pyproject.toml).
@@ -127,7 +134,7 @@ uv run python -m pytest
 
 ## Project Documentation
 
-The [hosted documentation site](https://denisecase.github.io/nlp-02-text-preprocessing/)
+The [hosted documentation site](https://jgdavis24.github.io/nlp-02-text-preprocessing-custom/)
 is published using Zensical and GitHub Pages.
 
 The documentation site is used to present the project report,
@@ -141,8 +148,8 @@ to check project files and publish the docs.
 
 GitHub Actions include:
 
-- [CI: Python and Documentation Checks](https://github.com/denisecase/nlp-02-text-preprocessing/actions/workflows/ci-python-zensical.yml)
-- [CD: Documentation Deployment](https://github.com/denisecase/nlp-02-text-preprocessing/actions/workflows/deploy-zensical.yml)
+- [CI: Python and Documentation Checks](https://github.com/jgdavis24/nlp-02-text-preprocessing-custom/actions/workflows/ci-python-zensical.yml)
+- [CD: Documentation Deployment](https://github.com/jgdavis24/nlp-02-text-preprocessing-custom/actions/workflows/deploy-zensical.yml)
 
 ## Developer Reference
 
@@ -227,7 +234,8 @@ testing, documentation, and code quality.
 
 ## Links
 
-- [Hosted Documentation](https://denisecase.github.io/nlp-02-text-preprocessing/)
+- [Hosted Documentation](https://jgdavis24.github.io/nlp-02-text-preprocessing-custom/)
+- [Original Example Project](https://github.com/denisecase/nlp-02-text-preprocessing)
 - [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
 - [Citation](CITATION.cff)
 - [License](LICENSE)
