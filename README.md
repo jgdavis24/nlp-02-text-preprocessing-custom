@@ -30,9 +30,10 @@ apply common preprocessing techniques,
 compare raw and cleaned text,
 and understand how preprocessing decisions affect analysis.
 
-Planned customization: swap in my own text file of sportsbook app reviews
-and test whether keeping 2-letter tokens (like state codes PA and NJ)
-changes the top words compared to the default length filter.
+My customization: test whether keeping 2-letter tokens
+(like state codes PA and NJ) changes the results,
+first on the original example data and then on fictional sportsbook app reviews.
+See [My Custom Work](#my-custom-work) below.
 
 The project is configured in
 [pyproject.toml](pyproject.toml).
@@ -41,6 +42,10 @@ The project is configured in
 
 The example uses text records stored in
 [data/text_data.txt](data/text_data.txt).
+
+My custom analysis also uses
+[data/sportsbook_reviews.txt](data/sportsbook_reviews.txt),
+15 fictional sportsbook app reviews.
 
 Each line represents one text record.
 
@@ -69,6 +74,8 @@ Explore these important project components:
 - [data/](data/) - input text data.
 - [src/nlp/text_preprocessing.py](src/nlp/text_preprocessing.py) - executable Python preprocessing analysis.
 - [notebooks/text_preprocessing.ipynb](notebooks/text_preprocessing.ipynb) - interactive Jupyter notebook example.
+- [notebooks/text_preprocessing_short_tokens.ipynb](notebooks/text_preprocessing_short_tokens.ipynb) - my Phase 4 modification.
+- [notebooks/sportsbook_reviews.ipynb](notebooks/sportsbook_reviews.ipynb) - my Phase 5 custom application.
 - [tests/](tests/) - automated tests.
 - [.github/workflows/](.github/workflows/) - automated testing and documentation deployment.
 - [docs/](docs/) - project documentation.
@@ -91,8 +98,8 @@ uv run python -m nlp.text_preprocessing
 **Close each visualization window** after viewing
 so the script can continue executing.
 
-The Jupyter notebook provides an additional
-interactive version of the analysis.
+The Jupyter notebooks provide interactive versions of the analysis.
+Open one, select the project `.venv` kernel, and click **Run All**.
 
 ## Results
 
@@ -123,6 +130,22 @@ and the logging system works.
 ### Example Visualization
 
 ![Word Cloud Example](docs/images/word_cloud_example.png)
+
+## My Custom Work
+
+### Phase 4: Technical Modification
+
+- **Notebook:** [notebooks/text_preprocessing_short_tokens.ipynb](notebooks/text_preprocessing_short_tokens.ipynb)
+- **Change:** Added a `KEEP_SHORT` allowlist (pa, nj, mi, nv, ny, id, no) and a reusable `clean_tokens()` function, then compared three rules on the original data: A. 3+ characters (original), B. all 2+ characters, C. 3+ characters plus the allowlist.
+- **Why:** The 3-character minimum removes state codes and "ID", which matter in sportsbook data. Just lowering the minimum lets in filler like "we" and "so".
+- **Result:** All three rules kept 46 tokens and 38 unique terms. Every short token in the example file was already a stop word, so the length rule didn't change anything on this data.
+
+### Phase 5: New Problem - Sportsbook App Reviews
+
+- **Notebook:** [notebooks/sportsbook_reviews.ipynb](notebooks/sportsbook_reviews.ipynb)
+- **Data:** [data/sportsbook_reviews.txt](data/sportsbook_reviews.txt), 15 fictional app reviews written with AI assistance. No real company or customers.
+- **Result:** Rule A kept 119 tokens, Rule B kept 136 (but added filler like "my", "me", "so"), and Rule C kept 130, adding only pa, nj, mi, id, and no. With Rule C, "pa" moved into the top 5 and "id" into the top 10.
+- **Insight:** In acquisition analysis, state codes show *where* a deposit or verification problem happens, and "ID" points to signup friction. "Not" was the most frequent word overall, which shows word counts can't separate "clear" from "not clear". Bigrams would be a good next step.
 
 ## Verification
 
@@ -237,5 +260,6 @@ testing, documentation, and code quality.
 - [Hosted Documentation](https://jgdavis24.github.io/nlp-02-text-preprocessing-custom/)
 - [Original Example Project](https://github.com/denisecase/nlp-02-text-preprocessing)
 - [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
+- [AI Use Statement](AI_USE.md)
 - [Citation](CITATION.cff)
 - [License](LICENSE)
